@@ -6,10 +6,17 @@ form = document.forms[0]
 
 form.addEventListener('submit', handleForm)
 btn.addEventListener('click', handleForm)
+cep.addEventListener('keydown', handleInput)
 
 function handleForm(e) {
     e.preventDefault()
     buscaCep(cep.value)
+}
+
+function handleInput(e) {
+    if ((this.value.length >= 8) && !(e.ctrlKey) && e.key.length <= 1){
+        e.preventDefault()
+    }
 }
 
 function buscaCep(cep) {

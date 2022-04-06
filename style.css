@@ -95,6 +95,7 @@ form label {
     font-size: 1.75rem;
     font-weight: bold;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .error {
@@ -105,6 +106,7 @@ form label {
 
 .resultado {
     font-size: 1.3rem;
+    width: calc(100vw - 25px);
     max-width: 600px;
 }
 

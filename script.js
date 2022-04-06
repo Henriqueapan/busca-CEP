@@ -20,12 +20,13 @@ function buscaCep(cep) {
     resultExt.classList.remove('error')
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
     .then(r => r.json(), () => {
-        resultExt.classList.remove('resultado-ext')
-        resultExt.classList.add('error')
-        resultExt.innerText = 'CEP inválido!'
+        throw Error('Campo vazio.')
     })
     .then(body => {
         const keys = Object.keys(body)
+        if (keys.includes('erro')){
+            throw new Error('CEP inválido.')
+        }
         keys.forEach(i => {
             if (body[i]) result.innerHTML += `<div><span>${i.toUpperCase()}:</span><span> ${body[i]}</span></div>`
         })
@@ -38,5 +39,10 @@ function buscaCep(cep) {
         body.logradouro ?
         resultExt.innerText = `${body.logradouro}, ` + resultExt.innerText :
         0
+    })
+    .catch((rejection) => {
+        resultExt.classList.remove('resultado-ext')
+        resultExt.classList.add('error')
+        resultExt.innerText = rejection.message
     })
 }

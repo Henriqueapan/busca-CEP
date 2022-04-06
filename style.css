@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=Playfair+Display+SC:wght@400;700;900&display=swap');
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e3f2fd;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.busca-cep {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 40% 1fr 20fr;
+    justify-items: center;
+    gap: 40px;
+}
+
+.form-wrapper {
+    align-self: flex-end;
+    width: 250px;
+}
+
+form label {
+    font-size: 1.25rem;
+    color: #1976D2;
+}
+
+#cep {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20px 0;
+    padding: 5px 0;
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    border: none;
+    border-bottom: 3px solid #BBDEFB;
+    /* box-shadow: 2px 2px 2px 0px rgba(0,0,0,.5); */
+}
+
+#send {
+    display: block;
+    margin: 0 auto;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.25rem;
+    width: 50%;
+    height: 43px;
+    font-weight: 500;
+    background-color: #1976D2;
+    color: #f8f9fa;
+    border: 3px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    transition-property: transform, box-shadow;
+    transition-duration: .05s;
+}
+
+#send:hover {
+    transition-property: transform, box-shadow;
+    transition-duration: .05s;
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.8);
+}
+
+#send:active {
+    transition-property: transform, box-shadow;
+    transition-duration: .05s;
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.resultado-ext {
+    color: #42A5F5;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.resultado {
+    font-size: 1.3rem;
+    max-width: 600px;
+}
+
+.resultado div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 5px;
+}
+
+.resultado div::after{
+    content: '';
+    width: 200%;
+    height: 1px;
+    background-color: black;
+}
+
+.resultado span:first-of-type {
+    font-weight: bold;
+}
+
+.resultado span:last-of-type {
+    text-align: justify;
+}

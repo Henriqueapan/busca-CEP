@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=Playfair+Display+SC:wght@400;700;900&display=swap');
 
+/* Remove spinner from number type input */
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -51,7 +53,10 @@ form label {
     font-family: 'IBM Plex Mono', monospace;
     border: none;
     border-bottom: 3px solid #BBDEFB;
-    /* box-shadow: 2px 2px 2px 0px rgba(0,0,0,.5); */
+}
+
+#cep:focus {
+    outline: none;
 }
 
 #send {
@@ -92,6 +97,12 @@ form label {
     margin-bottom: 30px;
 }
 
+.error {
+    color: black;
+    font-size: 1rem;
+    animation: .5s errorShake infinite;
+}
+
 .resultado {
     font-size: 1.3rem;
     max-width: 600px;
@@ -116,4 +127,16 @@ form label {
 
 .resultado span:last-of-type {
     text-align: justify;
+}
+
+@keyframes errorShake {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    0% {
+        transform: translateX(0px);
+    }
 }

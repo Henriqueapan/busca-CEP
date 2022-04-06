@@ -16,8 +16,14 @@ function buscaCep(cep) {
     console.log(cep)
     result.innerHTML = ''
     resultExt.innerHTML = ''
+    resultExt.classList.add('resultado-ext')
+    resultExt.classList.remove('error')
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    .then(r => r.json())
+    .then(r => r.json(), () => {
+        resultExt.classList.remove('resultado-ext')
+        resultExt.classList.add('error')
+        resultExt.innerText = 'CEP inválido!'
+    })
     .then(body => {
         const keys = Object.keys(body)
         keys.forEach(i => {

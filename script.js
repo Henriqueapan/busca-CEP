@@ -13,14 +13,16 @@ function handleForm(e) {
 }
 
 function buscaCep(cep) {
-    console.log(cep)
     result.innerHTML = ''
     resultExt.innerHTML = ''
     resultExt.classList.add('resultado-ext')
     resultExt.classList.remove('error')
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
     .then(r => r.json(), () => {
-        throw Error('Campo vazio.')
+        const erro = new Error()
+        cep ? erro.message = 'CEP inválido.' : erro.message = 'Campo vazio.'
+
+        throw erro
     })
     .then(body => {
         const keys = Object.keys(body)

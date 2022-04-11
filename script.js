@@ -15,7 +15,13 @@ function handleForm(e) {
 
 function handleInput(e) {
     if ((this.value.length >= 8) && !(e.ctrlKey) && e.key.length <= 1){
-        e.preventDefault()
+        if (!isNaN(e.key)){
+            try {
+                window.getSelection().toString() === this.value ? this.value = '' : e.preventDefault()
+            }
+            catch {}
+        }
+        else e.preventDefault()
     }
 }
 
